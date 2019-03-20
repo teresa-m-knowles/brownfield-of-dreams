@@ -37,7 +37,7 @@
       player = new YT.Player('player', {
         width: '640',
         height: '390',
-        videoId: '<%= @facade.current_video.video_id %>',
+        videoId: '<%= @facade.current_video.id %>',
         events: {
           onReady: onPlayerReady,
           onStateChange: onPlayerStateChange
