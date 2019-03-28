@@ -3,22 +3,26 @@ class Admin::TutorialsController < Admin::BaseController
     @tutorial = Tutorial.find(params[:id])
   end
 
-
   def create
     if params[:tutorial][:playlist_id]
-      create_tutorial_from_playlist
+      create_tutorial_from_playlist if !create_tutorial_from_playlist.nil?
     else
       @tutorial = create_tutorial_from_input
     end
 
-    if @tutorial.save
+    if @tutorial.nil?
+      flash[:message] = "Invalid playlist ID. Please try again."
+
+      redirect_to new_admin_tutorial_path
+    elsif @tutorial.save
       save_videos
 
       flash[:message] = "Successfully created tutorial."
-
       redirect_to admin_dashboard_path
     else
-      flash[:error] = "Tutorial could not be saved. Please check the playlist id and information."
+      error_message = @tutorial.errors.full_messages.to_sentence
+      flash[:error] = "Unable to create Tutorial. #{error_message}"
+      #flash[:error] = "Tutorial could not be saved. Please check the playlist id and information."
 
       render :new
     end
@@ -35,7 +39,6 @@ class Admin::TutorialsController < Admin::BaseController
     end
     redirect_to edit_admin_tutorial_path(tutorial)
   end
-
 
   def destroy
     tutorial = Tutorial.find(params[:id])
@@ -54,6 +57,8 @@ class Admin::TutorialsController < Admin::BaseController
 
   def create_tutorial_from_playlist
     playlist_id = params[:tutorial][:playlist_id]
+
+    return nil if YouTube::Tutorial.by_id(playlist_id).title.nil?
 
     youtube_tutorial = YouTube::Tutorial.by_id(playlist_id)
     title = youtube_tutorial.title
