@@ -11,6 +11,7 @@ class Admin::TutorialsController < Admin::BaseController
 
       redirect_to admin_dashboard_path
     else
+      flash[:message] = "Unable to create a tutorial."
       render :new
     end
   end
