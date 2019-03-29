@@ -4,7 +4,6 @@ class FriendshipsController < ApplicationController
     friendship = current_user.friendships.new(friend: friend)
 
     if friendship.save
-
       flash[:success] = "#{friend.first_name} added as a friend."
     else
       flash[:error] = "Invalid friend request"

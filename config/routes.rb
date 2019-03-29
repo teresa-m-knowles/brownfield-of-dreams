@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :update, :edit]
 
   namespace :admin do
+
     get "/dashboard", to: "dashboard#show"
     resources :tutorials, only: [:create, :edit, :update, :destroy, :new] do
       resources :videos, only: [:create]

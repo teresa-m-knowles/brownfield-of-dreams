@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User can see a adda friend for possible friendships' do
+RSpec.describe 'User can add a friend from their github followers or who they follow' do
   describe 'As a logged in user, when I visit my dashboard' do
     before :each do
       @user1 = create(:user, uid: '12')
