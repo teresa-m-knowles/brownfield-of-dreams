@@ -19,6 +19,7 @@ RSpec.describe GithubService do
 
       results = service.get_repos
       repository = results.first
+
       expect(repository[:name]).to eq('activerecord-obstacle-course')
       expect(repository[:html_url]).to eq('https://github.com/teresa-m-knowles/activerecord-obstacle-course')
     end
@@ -33,12 +34,15 @@ RSpec.describe GithubService do
     end
 
     it 'gets user followers' do
+
       service = GithubService.new(@user1)
 
       results = service.get_followers
       follower = results.first
+
       expect(follower[:login]).to eq('Mackenzie-Frey')
       expect(follower[:html_url]).to eq('https://github.com/Mackenzie-Frey')
     end
+
   end
 end

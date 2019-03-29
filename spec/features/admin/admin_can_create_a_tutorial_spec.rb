@@ -130,6 +130,7 @@ RSpec.describe 'Admin can create a Tutorial' do
             expect(Video.last).to eq(nil)
           end
         end
+
       end
     end
   end
