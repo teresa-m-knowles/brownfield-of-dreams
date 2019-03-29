@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # class UserVideosController < ApplicationController
 #   def new
 #   end

@@ -1,10 +1,11 @@
-class UserDashboardFacade
+# frozen_string_literal: true
 
+class UserDashboardFacade
   def initialize(user)
     @user = user
   end
 
-  #is there a better name we could use here?
+  # is there a better name we could use here?
   def users_followed
     response = service.get_users_followed
     response.map do |user_data|
@@ -27,7 +28,7 @@ class UserDashboardFacade
   end
 
   def top_user_repos(quantity)
-    user_repos[0,quantity]
+    user_repos[0, quantity]
   end
 
   def service

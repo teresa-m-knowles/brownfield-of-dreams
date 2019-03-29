@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :find_bookmark
@@ -22,5 +24,4 @@ class ApplicationController < ActionController::Base
   def four_oh_four
     render file: 'errors/not_found', status: 404
   end
-
 end

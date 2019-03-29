@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'User can see a adda friend for possible friendships' do
@@ -16,10 +18,10 @@ RSpec.describe 'User can see a adda friend for possible friendships' do
     it "I can see 'add a friend' button" do
       visit '/dashboard'
 
-      expect(page).to have_content("My Followers")
+      expect(page).to have_content('My Followers')
 
       within(page.all('.user_follower')[0]) do
-        expect(page).to have_link('Mackenzie-Frey', href: "https://github.com/Mackenzie-Frey")
+        expect(page).to have_link('Mackenzie-Frey', href: 'https://github.com/Mackenzie-Frey')
         expect(page).to_not have_css('.friend-button')
       end
 
@@ -28,23 +30,23 @@ RSpec.describe 'User can see a adda friend for possible friendships' do
       end
 
       within(page.all('.user_follower')[1]) do
-        expect(page).to have_link('Zach-Nager', href: "https://github.com/nagerz")
+        expect(page).to have_link('Zach-Nager', href: 'https://github.com/nagerz')
         expect(page).to have_css('.friend-button', count: 1)
         expect(page).to have_button('Add as a Friend')
       end
 
       within(page.all('.following')[1]) do
-        expect(page).to have_link('Zach-Nager', href: "https://github.com/nagerz")
+        expect(page).to have_link('Zach-Nager', href: 'https://github.com/nagerz')
         expect(page).to have_css('.friend-button', count: 1)
         expect(page).to have_button('Add as a Friend')
       end
     end
 
-    it "I can see a friendships section with no friends" do
+    it 'I can see a friendships section with no friends' do
       visit '/dashboard'
 
       within('.user-friendships') do
-        expect(page).to have_content("You have not friended anyone yet.")
+        expect(page).to have_content('You have not friended anyone yet.')
       end
     end
 
@@ -52,7 +54,7 @@ RSpec.describe 'User can see a adda friend for possible friendships' do
       visit '/dashboard'
 
       within(page.all('.user_follower')[1]) do
-        click_button("Add as a Friend")
+        click_button('Add as a Friend')
       end
 
       expect(current_path).to eq(dashboard_path)
@@ -68,7 +70,7 @@ RSpec.describe 'User can see a adda friend for possible friendships' do
       visit '/dashboard'
 
       within(page.all('.user_follower')[1]) do
-        click_button("Add as a Friend")
+        click_button('Add as a Friend')
       end
 
       expect(current_path).to eq(dashboard_path)
@@ -82,6 +84,5 @@ RSpec.describe 'User can see a adda friend for possible friendships' do
         expect(page).to_not have_css('.friend-button')
       end
     end
-
   end
 end
