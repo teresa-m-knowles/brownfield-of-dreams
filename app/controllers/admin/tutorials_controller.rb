@@ -12,17 +12,19 @@ class Admin::TutorialsController < Admin::BaseController
 
     if @tutorial.nil?
       flash[:message] = "Invalid playlist ID. Please try again."
-
       redirect_to new_admin_tutorial_path
     elsif @tutorial.save
       save_videos
 
-      flash[:message] = "Successfully created tutorial."
-      redirect_to admin_dashboard_path
+      redirect_to(
+        admin_dashboard_path,
+        notice: %Q[ Successfully created tutorial. #{view_context.link_to("View it here", tutorial_path(@tutorial))}.],
+        flash: { html_safe: true }
+      )
     else
       error_message = @tutorial.errors.full_messages.to_sentence
       flash[:error] = "Unable to create Tutorial. #{error_message}"
-    
+      
       render :new
     end
   end
