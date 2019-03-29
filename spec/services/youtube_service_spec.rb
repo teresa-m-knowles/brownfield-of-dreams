@@ -4,7 +4,6 @@ require 'rails_helper'
 
 RSpec.describe YoutubeService do
   it 'exists' do
-
     service = YoutubeService.new
     expect(service).to be_a(YoutubeService)
   end
@@ -49,6 +48,5 @@ RSpec.describe YoutubeService do
       expect(video_data[:contentDetails][:videoId]).to eq('qMkRHW9zE1c')
       expect(video_data[:snippet][:thumbnails][:high][:url]).to eq('https://i.ytimg.com/vi/qMkRHW9zE1c/hqdefault.jpg')
     end
-
   end
 end

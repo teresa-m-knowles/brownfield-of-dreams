@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UserDashboardFacade do
@@ -14,6 +16,4 @@ RSpec.describe UserDashboardFacade do
   it 'gets all tutorials' do
     expect(@facade.tutorials).to eq(@tutorials)
   end
-
-
 end
