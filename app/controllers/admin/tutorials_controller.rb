@@ -27,7 +27,6 @@ class Admin::TutorialsController < Admin::BaseController
     else
       error_message = @tutorial.errors.full_messages.to_sentence
       flash[:error] = "Unable to create Tutorial. #{error_message}"
-      # flash[:error] = "Tutorial could not be saved. Please check the playlist id and information."
 
       render :new
     end
@@ -69,6 +68,7 @@ class Admin::TutorialsController < Admin::BaseController
     youtube_tutorial = YouTube::Tutorial.by_id(playlist_id)
     title = youtube_tutorial.title
     description = youtube_tutorial.description
+
     description = 'This tutorial has no description.' if description == ''
     thumbnail = youtube_tutorial.thumbnail
 
@@ -87,6 +87,7 @@ class Admin::TutorialsController < Admin::BaseController
 
       new_video_params = { title: v_title, description: v_description, thumbnail: v_thumbnail, video_id: v_id }
 
+
       @tutorial_videos << Video.new(new_video_params)
     end
   end
@@ -97,4 +98,5 @@ class Admin::TutorialsController < Admin::BaseController
       video.save
     end
   end
+  
 end
