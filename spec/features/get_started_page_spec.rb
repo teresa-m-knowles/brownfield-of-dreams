@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Get started page' do
@@ -5,17 +7,17 @@ RSpec.describe 'Get started page' do
     it 'has a title' do
       visit get_started_path
 
-      expect(page).to have_content("Get Started")
+      expect(page).to have_content('Get Started')
     end
     it 'has a list paragraph' do
       visit get_started_path
 
-      expect(page).to have_content("Browse tutorials from the homepage.")
-      expect(page).to have_link("homepage", href: root_path)
-      expect(page).to have_content("Filter results by selecting a filter on the side bar of the homepage.")
-      expect(page).to have_content("Register to bookmark segments.")
-      expect(page).to have_content("Sign in with census if you are a current student for additional content.")
-      expect(page).to have_link("Sign in", href: login_path)
+      expect(page).to have_content('Browse tutorials from the homepage.')
+      expect(page).to have_link('homepage', href: root_path)
+      expect(page).to have_content('Filter results by selecting a filter on the side bar of the homepage.')
+      expect(page).to have_content('Register to bookmark segments.')
+      expect(page).to have_content('Sign in with census if you are a current student for additional content.')
+      expect(page).to have_link('Sign in', href: login_path)
     end
   end
 

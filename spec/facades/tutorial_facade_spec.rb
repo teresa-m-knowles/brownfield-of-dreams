@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe TutorialFacade do
@@ -15,5 +17,4 @@ RSpec.describe TutorialFacade do
     @facade.description = @tutorial.description
     @facade.thumbnail = @tutorial.thumbnail
   end
-
 end

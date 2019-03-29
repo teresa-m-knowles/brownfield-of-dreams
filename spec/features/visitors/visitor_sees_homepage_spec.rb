@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Visitor' do
@@ -30,11 +32,11 @@ describe 'Visitor' do
 
         visit root_path
         within(first('.tutorial')) do
-          expect(page).to have_content("(Classroom)")
+          expect(page).to have_content('(Classroom)')
         end
 
         within(page.all('.tutorial')[1]) do
-          expect(page).to_not have_content("(Classroom)")
+          expect(page).to_not have_content('(Classroom)')
         end
       end
     end

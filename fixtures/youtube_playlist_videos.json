@@ -1,0 +1,206 @@
+{
+    "kind": "youtube#playlistItemListResponse",
+    "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/FcwzLgf-ag2r-ZWp94o3lV-bnPU\"",
+    "pageInfo": {
+        "totalResults": 4,
+        "resultsPerPage": 5
+    },
+    "items": [
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/LCdbmNdaL-N9FE4GXiMnW2j4blE\"",
+            "id": "UEwxWTY3ZjB4UHpkTjZDLUxQdVRRNXl6bEJvejJqb1dhNS41NkI0NEY2RDEwNTU3Q0M2",
+            "snippet": {
+                "publishedAt": "2018-01-18T17:18:47.000Z",
+                "channelId": "UC2zYYOtckevoWTGDu5SdCkg",
+                "title": "Playlist video 1",
+                "description": "test1",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/qMkRHW9zE1c/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/qMkRHW9zE1c/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/qMkRHW9zE1c/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/qMkRHW9zE1c/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/qMkRHW9zE1c/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Turing School of Software and Design",
+                "playlistId": "PL1Y67f0xPzdN6C-LPuTQ5yzlBoz2joWa5",
+                "position": 0,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "qMkRHW9zE1c"
+                }
+            },
+            "contentDetails": {
+                "videoId": "qMkRHW9zE1c",
+                "videoPublishedAt": "2018-01-18T17:27:08.000Z"
+            }
+        },
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/McFV3p-odlvwTZXiRyYsSgV6NgA\"",
+            "id": "UEwxWTY3ZjB4UHpkTjZDLUxQdVRRNXl6bEJvejJqb1dhNS4yODlGNEE0NkRGMEEzMEQy",
+            "snippet": {
+                "publishedAt": "2018-01-18T21:06:35.000Z",
+                "channelId": "UC2zYYOtckevoWTGDu5SdCkg",
+                "title": "Playlist video 3",
+                "description": "test3",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/XsPVWGKK0qI/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/XsPVWGKK0qI/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/XsPVWGKK0qI/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/XsPVWGKK0qI/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/XsPVWGKK0qI/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Turing School of Software and Design",
+                "playlistId": "PL1Y67f0xPzdN6C-LPuTQ5yzlBoz2joWa5",
+                "position": 1,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "XsPVWGKK0qI"
+                }
+            },
+            "contentDetails": {
+                "videoId": "XsPVWGKK0qI",
+                "videoPublishedAt": "2018-01-18T20:55:46.000Z"
+            }
+        },
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/HzFh7Kj_9fw7DgJJd_Td_Dv2HZU\"",
+            "id": "UEwxWTY3ZjB4UHpkTjZDLUxQdVRRNXl6bEJvejJqb1dhNS4wMTcyMDhGQUE4NTIzM0Y5",
+            "snippet": {
+                "publishedAt": "2018-02-03T20:43:29.000Z",
+                "channelId": "UC2zYYOtckevoWTGDu5SdCkg",
+                "title": "Playlist video 2",
+                "description": "test2",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/iXLwXvev4X8/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/iXLwXvev4X8/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/iXLwXvev4X8/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/iXLwXvev4X8/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/iXLwXvev4X8/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Turing School of Software and Design",
+                "playlistId": "PL1Y67f0xPzdN6C-LPuTQ5yzlBoz2joWa5",
+                "position": 2,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "iXLwXvev4X8"
+                }
+            },
+            "contentDetails": {
+                "videoId": "iXLwXvev4X8",
+                "videoPublishedAt": "2018-02-03T20:52:12.000Z"
+            }
+        },
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/uimLcXJhuTgvhUp-Jq8WCaTfyyI\"",
+            "id": "UEwxWTY3ZjB4UHpkTjZDLUxQdVRRNXl6bEJvejJqb1dhNS41MjE1MkI0OTQ2QzJGNzNG",
+            "snippet": {
+                "publishedAt": "2018-02-13T21:41:37.000Z",
+                "channelId": "UC2zYYOtckevoWTGDu5SdCkg",
+                "title": "Playlist video 4",
+                "description": "test4",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/c2UnIQ3LRnM/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/c2UnIQ3LRnM/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/c2UnIQ3LRnM/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/c2UnIQ3LRnM/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/c2UnIQ3LRnM/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Turing School of Software and Design",
+                "playlistId": "PL1Y67f0xPzdN6C-LPuTQ5yzlBoz2joWa5",
+                "position": 3,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "c2UnIQ3LRnM"
+                }
+            },
+            "contentDetails": {
+                "videoId": "c2UnIQ3LRnM",
+                "videoPublishedAt": "2018-02-13T21:41:36.000Z"
+            }
+        }
+    ]
+}
