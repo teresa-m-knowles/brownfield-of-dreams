@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# To send invitations to use the app
 class InviteMailer < ApplicationMailer
   def invite(user, github_user)
     @user = user

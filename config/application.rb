@@ -20,6 +20,7 @@ require 'sprockets/railtie'
 Bundler.require(*Rails.groups)
 
 module PersonalProject
+  # Application that inherits from Rails application
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2

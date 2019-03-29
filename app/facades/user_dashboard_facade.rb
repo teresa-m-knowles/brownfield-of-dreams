@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Facade for the user dashboard show
 class UserDashboardFacade
   def initialize(user)
     @user = user

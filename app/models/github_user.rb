@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# GithubUser PORO for github users, not regular app users
 class GithubUser
   attr_reader :name,
               :address,

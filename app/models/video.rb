@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Video Model
 class Video < ApplicationRecord
   has_many :user_videos, dependent: :destroy
   has_many :users, through: :user_videos

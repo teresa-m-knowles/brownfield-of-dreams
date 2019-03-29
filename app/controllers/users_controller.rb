@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Controller for regular users
 class UsersController < ApplicationController
   before_action :require_user, only: [:show]
 

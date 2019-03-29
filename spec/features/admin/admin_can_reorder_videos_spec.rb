@@ -5,9 +5,9 @@ require 'rails_helper'
 RSpec.describe 'An Admin can edit a tutorial by changing the sequence of videos' do
   before :each do
     @tutorial = create(:tutorial)
-    @video_1 = create(:video, tutorial: @tutorial)
-    @video_2 = create(:video, tutorial: @tutorial)
-    @video_3 = create(:video, tutorial: @tutorial)
+    @video1 = create(:video, tutorial: @tutorial)
+    @video2 = create(:video, tutorial: @tutorial)
+    @video3 = create(:video, tutorial: @tutorial)
   end
 
   describe 'As a logged in admin user' do
@@ -17,20 +17,20 @@ RSpec.describe 'An Admin can edit a tutorial by changing the sequence of videos'
 
       visit edit_admin_tutorial_path(@tutorial)
 
-      expect(page.all('.video')[0]).to have_content(@video_1.title.to_s)
-      expect(page.all('.video')[1]).to have_content(@video_2.title.to_s)
-      expect(page.all('.video')[2]).to have_content(@video_3.title.to_s)
+      expect(page.all('.video')[0]).to have_content(@video1.title.to_s)
+      expect(page.all('.video')[1]).to have_content(@video2.title.to_s)
+      expect(page.all('.video')[2]).to have_content(@video3.title.to_s)
 
-      sequence = [@video_3.id, @video_1.id, @video_2.id]
+      sequence = [@video3.id, @video1.id, @video2.id]
       tutorial_sequencer = TutorialSequencer.new(@tutorial, sequence)
 
       tutorial_sequencer.run!
 
       visit edit_admin_tutorial_path(@tutorial)
 
-      expect(page.all('.video')[0]).to have_content(@video_3.title.to_s)
-      expect(page.all('.video')[1]).to have_content(@video_1.title.to_s)
-      expect(page.all('.video')[2]).to have_content(@video_2.title.to_s)
+      expect(page.all('.video')[0]).to have_content(@video3.title.to_s)
+      expect(page.all('.video')[1]).to have_content(@video1.title.to_s)
+      expect(page.all('.video')[2]).to have_content(@video2.title.to_s)
     end
   end
 

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Tutorial Sequencer to rotate the videos
 class TutorialSequencer
   def initialize(tutorial, sequenced_video_ids)
     @tutorial = tutorial

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# To send links to confirm your account
 class UserActivatorMailer < ApplicationMailer
   def inform(user)
     @user = user

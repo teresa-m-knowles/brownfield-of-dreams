@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Admin can create videos
 class Admin::VideosController < Admin::BaseController
   # def edit
   #   @video = Video.find(params[:id])

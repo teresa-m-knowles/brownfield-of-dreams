@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Creates Friendship objects
 class FriendshipsController < ApplicationController
   def create
     friend = User.where(uid: params[:friend]).first

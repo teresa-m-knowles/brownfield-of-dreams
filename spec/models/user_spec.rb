@@ -51,12 +51,12 @@ RSpec.describe User, type: :model do
       uv3 = create(:user_video, user: user, video: video4)
       uv4 = create(:user_video, user: user2, video: video3)
 
-      bookmarked_user_1 = {
+      bookmarked_user1 = {
         tutorial1 => [video1, video2],
         tutorial3 => [video4]
       }
 
-      expect(user.bookmarks).to eq(bookmarked_user_1)
+      expect(user.bookmarks).to eq(bookmarked_user1)
     end
 
     it 'github_uniq? gets a user and github omniauth hash and returns a boolean' do

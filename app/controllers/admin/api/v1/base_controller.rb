@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Restricts admin actions to admin user
 class Admin::Api::V1::BaseController < ActionController::API
   before_action :require_admin!
 
