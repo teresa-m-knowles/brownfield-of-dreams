@@ -8,4 +8,5 @@ class Video < ApplicationRecord
   validates_presence_of :description
   validates_presence_of :video_id
   validates_presence_of :position
+  validates_presence_of :thumbnail
 end
