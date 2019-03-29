@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe AdminDashboardFacade do
+RSpec.describe UserDashboardFacade do
   before :each do
     @user = create(:user)
     create(:github_token, user: @user, token: ENV['USER_1_GITHUB_TOKEN'])

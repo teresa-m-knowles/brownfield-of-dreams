@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe UserDashboardFacade do
+RSpec.describe AdminDashboardFacade do
   before :each do
     @admin = create(:admin)
     @facade = AdminDashboardFacade.new
