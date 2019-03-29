@@ -58,5 +58,13 @@ RSpec.describe User, type: :model do
 
       expect(user.bookmarks).to eq(bookmarked_user_1)
     end
+
+    it 'github_uniq? gets a user and github omniauth hash and returns a boolean' do
+      user = create(:user)
+
+      auth = OmniAuth.config.mock_auth[:github]
+
+      expect(User.github_uniq?(user, auth)).to be true
+    end
   end
 end
