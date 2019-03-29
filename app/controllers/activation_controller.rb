@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ActivationController < ApplicationController
   def activate
     if current_user
@@ -7,7 +9,7 @@ class ActivationController < ApplicationController
         four_oh_four
       end
     else
-      flash[:notice] = "You must be logged in to activate your account. Please login and try again."
+      flash[:notice] = 'You must be logged in to activate your account. Please login and try again.'
       redirect_to login_path
     end
   end

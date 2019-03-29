@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'About show page' do
@@ -5,7 +7,7 @@ RSpec.describe 'About show page' do
     it 'has a title' do
       visit about_path
 
-      expect(page).to have_content("Turing Tutorials")
+      expect(page).to have_content('Turing Tutorials')
     end
     it 'has a paragraph description' do
       visit about_path
@@ -15,9 +17,9 @@ RSpec.describe 'About show page' do
     it 'has a link to get started' do
       visit about_path
 
-      expect(page).to have_link("Get Started", href: get_started_path)
+      expect(page).to have_link('Get Started', href: get_started_path)
 
-      click_on "Get Started"
+      click_on 'Get Started'
 
       expect(current_path).to eq(get_started_path)
     end
@@ -39,7 +41,7 @@ RSpec.describe 'About show page' do
       click_on 'About'
 
       expect(current_path).to eq(about_path)
-      
+
       admin = create(:user, role: 1)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
@@ -48,7 +50,6 @@ RSpec.describe 'About show page' do
       click_on 'About'
 
       expect(current_path).to eq(about_path)
-
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :user_videos
   has_many :videos, through: :user_videos
@@ -12,20 +14,19 @@ class User < ApplicationRecord
   validates_presence_of :password
   validates_presence_of :first_name
 
-  enum role: [:default, :admin]
-  enum status: [:inactive, :active]
+  enum role: %i[default admin]
+  enum status: %i[inactive active]
 
   has_secure_password
 
-  def self.github_uniq?(user, auth)
-    self.where(uid: auth.uid).empty?
+  def self.github_uniq?(_user, auth)
+    where(uid: auth.uid).empty?
   end
 
   def bookmarks
     unordered_bookmarks = videos.includes(:tutorial)
-    .order("videos.position asc")
+                                .order('videos.position asc')
 
-    unordered_bookmarks.group_by {|video| video.tutorial}
+    unordered_bookmarks.group_by(&:tutorial)
   end
-
 end

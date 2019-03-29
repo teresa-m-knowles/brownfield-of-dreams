@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :require_user, only: [:show]
-  
+
   def show
     render locals: {
-                    facade: UserDashboardFacade.new(current_user)
-                    }
+      facade: UserDashboardFacade.new(current_user)
+    }
   end
 
   def new
@@ -29,5 +31,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password)
   end
-
 end

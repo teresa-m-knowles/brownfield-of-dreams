@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Tutorial show page' do
@@ -13,11 +15,10 @@ RSpec.describe 'Tutorial show page' do
     end
     describe 'as a visitor' do
       it 'does not show the tutorial videos' do
-
         visit root_path
         click_on @tutorial1.title
 
-        expect(page).to have_content("You need to login to see this tutorial.")
+        expect(page).to have_content('You need to login to see this tutorial.')
         expect(page).to_not have_content(@video1.title)
 
         visit root_path
@@ -33,10 +34,9 @@ RSpec.describe 'Tutorial show page' do
         visit root_path
         click_on @tutorial1.title
 
-        expect(page).to_not have_content("You need to login to see this tutorial.")
+        expect(page).to_not have_content('You need to login to see this tutorial.')
         expect(page).to have_content(@video1.title)
       end
     end
-
   end
 end

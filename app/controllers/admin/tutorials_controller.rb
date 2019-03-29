@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::TutorialsController < Admin::BaseController
   def edit
     @tutorial = Tutorial.find(params[:id])
@@ -5,26 +7,27 @@ class Admin::TutorialsController < Admin::BaseController
 
   def create
     if params[:tutorial][:playlist_id]
-      create_tutorial_from_playlist if !create_tutorial_from_playlist.nil?
+      create_tutorial_from_playlist unless create_tutorial_from_playlist.nil?
     else
       @tutorial = create_tutorial_from_input
     end
 
     if @tutorial.nil?
-      flash[:message] = "Invalid playlist ID. Please try again."
+      flash[:message] = 'Invalid playlist ID. Please try again.'
+
       redirect_to new_admin_tutorial_path
     elsif @tutorial.save
       save_videos
 
       redirect_to(
         admin_dashboard_path,
-        notice: %Q[ Successfully created tutorial. #{view_context.link_to("View it here", tutorial_path(@tutorial))}.],
+        notice: %( Successfully created tutorial. #{view_context.link_to('View it here', tutorial_path(@tutorial))}.),
         flash: { html_safe: true }
       )
     else
       error_message = @tutorial.errors.full_messages.to_sentence
       flash[:error] = "Unable to create Tutorial. #{error_message}"
-      
+
       render :new
     end
   end
@@ -48,6 +51,7 @@ class Admin::TutorialsController < Admin::BaseController
   end
 
   private
+
   def tutorial_params
     params.require(:tutorial).permit(:tag_list, :title, :description, :thumbnail, :playlist_id)
   end
@@ -64,12 +68,11 @@ class Admin::TutorialsController < Admin::BaseController
     youtube_tutorial = YouTube::Tutorial.by_id(playlist_id)
     title = youtube_tutorial.title
     description = youtube_tutorial.description
-    if description == ""
-      description = "This tutorial has no description."
-    end
+
+    description = 'This tutorial has no description.' if description == ''
     thumbnail = youtube_tutorial.thumbnail
 
-    playlist_params = {title: title, description: description, thumbnail: thumbnail, playlist_id: playlist_id}
+    playlist_params = { title: title, description: description, thumbnail: thumbnail, playlist_id: playlist_id }
 
     @tutorial = Tutorial.new(playlist_params)
 
@@ -77,24 +80,23 @@ class Admin::TutorialsController < Admin::BaseController
 
     @tutorial_videos = []
     tutorial_videos_data[:items].each do |tutorial_video|
-
       v_title = tutorial_video[:snippet][:title]
       v_description = tutorial_video[:snippet][:description]
       v_id = tutorial_video[:contentDetails][:videoId]
       v_thumbnail = tutorial_video[:snippet][:thumbnails][:high][:url]
 
-      new_video_params = {title: v_title, description: v_description, thumbnail: v_thumbnail, video_id: v_id}
+      new_video_params = { title: v_title, description: v_description, thumbnail: v_thumbnail, video_id: v_id }
+
 
       @tutorial_videos << Video.new(new_video_params)
     end
   end
 
   def save_videos
-    if @tutorial_videos
-      @tutorial_videos.each do |video|
-        video.tutorial_id = @tutorial.id
-        video.save
-      end
+    @tutorial_videos&.each do |video|
+      video.tutorial_id = @tutorial.id
+      video.save
     end
   end
+  
 end
