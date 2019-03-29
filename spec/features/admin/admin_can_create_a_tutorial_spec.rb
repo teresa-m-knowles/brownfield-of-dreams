@@ -6,7 +6,7 @@ RSpec.describe 'Admin can create a Tutorial' do
   describe 'As a logged in admin user' do
     before :each do
       @admin = create(:user, role: 1)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+      allow_any_instance_of(Admin::BaseController).to receive(:current_user).and_return(@admin)
     end
     describe 'when I visit my dashboard' do
       describe 'and click on New Tutorial' do

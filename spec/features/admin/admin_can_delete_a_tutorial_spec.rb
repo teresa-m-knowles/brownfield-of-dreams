@@ -12,7 +12,7 @@ RSpec.describe 'Admin can delete a Tutorial' do
         @videos_from_tutorial_1 = create_list(:video, 2, tutorial: @tutorial_1)
         @videos_from_tutorial_2 = create_list(:video, 3, tutorial: @tutorial_2)
 
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+        allow_any_instance_of(Admin::BaseController).to receive(:current_user).and_return(@admin)
       end
       describe 'and I click on the link to delete a tutorial' do
         it 'should delete that tutorial from the database' do
