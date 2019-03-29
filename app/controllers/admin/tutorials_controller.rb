@@ -25,7 +25,6 @@ class Admin::TutorialsController < Admin::BaseController
     else
       error_message = @tutorial.errors.full_messages.to_sentence
       flash[:error] = "Unable to create Tutorial. #{error_message}"
-      #flash[:error] = "Tutorial could not be saved. Please check the playlist id and information."
 
       render :new
     end
