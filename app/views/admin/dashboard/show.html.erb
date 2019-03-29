@@ -11,7 +11,7 @@
     <th>Actions</th>
   </tr>
   <% @facade.tutorials.each do |tutorial| %>
-    <tr class="admin-tutorial-card">
+    <tr class="admin-tutorial-card" id='tutorial-<%=tutorial.id%>'>
       <td>
         <%= link_to tutorial.title, tutorial_path(tutorial) %>
       </td>
