@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Github User PORO class.
+# For a user that is connected to github, this @id should match their user uid.
 class GithubUser
   attr_reader :name,
               :address,

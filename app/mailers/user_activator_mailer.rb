@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Sends an email upon user registration
 class UserActivatorMailer < ApplicationMailer
   def inform(user)
     @user = user
