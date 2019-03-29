@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Invitation controller to send email to invite someone to the app
 class InvitationController < ApplicationController
   def new; end
 

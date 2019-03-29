@@ -6,8 +6,8 @@ RSpec.describe 'A logged in User can connect their Github account' do
   describe 'As a logged in user' do
     context 'that has NOT connected their github account' do
       before :each do
-        @user_1 = create(:user)
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+        @user1 = create(:user)
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
         Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:github]
         stub_user_1_dashboard
       end
@@ -34,7 +34,7 @@ RSpec.describe 'A logged in User can connect their Github account' do
 
           uid = OmniAuth.config.mock_auth[:github][:uid]
 
-          expect(@user_1.uid).to eq(uid)
+          expect(@user1.uid).to eq(uid)
           expect(page).to have_content('Your Github account is now linked.')
 
           expect(page).to have_css('.repositories')
@@ -63,11 +63,11 @@ RSpec.describe 'A logged in User can connect their Github account' do
 
     context 'that has already connected their github account' do
       before :each do
-        @user_2 = create(:user, uid: '13354855')
+        @user2 = create(:user, uid: '13354855')
         request = OmniAuth.config.mock_auth[:github]
         token = request[:credentials][:token]
-        GithubToken.create(token: token, user: @user_2)
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_2)
+        GithubToken.create(token: token, user: @user2)
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
         stub_user_1_dashboard
       end
       describe 'in my dashboard' do

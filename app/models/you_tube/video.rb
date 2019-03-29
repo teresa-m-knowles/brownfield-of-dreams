@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module YouTube
+  # Video PORO, not the same as the Video Model
   class Video
     attr_reader :thumbnail
 

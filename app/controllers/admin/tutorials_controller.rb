@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Inherits from admin base controller
 class Admin::TutorialsController < Admin::BaseController
   def edit
     @tutorial = Tutorial.find(params[:id])

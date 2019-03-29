@@ -82,10 +82,10 @@ RSpec.describe 'User can send an email invite to the application' do
           it 'should not allow me to send an invite to anyone already registered(including myself)' do
             @user.update(uid: 123_456)
 
-            user_2 = create(:user, uid: 45)
-            create(:github_token, user: user_2, token: ENV['USER_2_GITHUB_TOKEN'])
+            user2 = create(:user, uid: 45)
+            create(:github_token, user: user2, token: ENV['USER_2_GITHUB_TOKEN'])
 
-            allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_2)
+            allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user2)
 
             stub_user_2_dashboard
 

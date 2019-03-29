@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Uses Youtube API
 class YoutubeService
   def video_info(id)
     params = { part: 'snippet,contentDetails,statistics', id: id, key: ENV['YOUTUBE_API_KEY'] }

@@ -6,9 +6,9 @@ RSpec.describe 'Admin::Api::V1::TutorialSequencerController', type: :request do
   describe 'As an admin' do
     it 'require user to be an admin' do
       tutorial = create(:tutorial, id: 12)
-      vid_1 =  create(:video, tutorial: tutorial, position: 1, id: 12_345)
-      vid_2 =  create(:video, tutorial: tutorial, position: 2, id: 123_456)
-      vid_3 =  create(:video, tutorial: tutorial, position: 3, id: 1_234_567)
+      vid1 =  create(:video, tutorial: tutorial, position: 1, id: 12_345)
+      vid2 =  create(:video, tutorial: tutorial, position: 2, id: 123_456)
+      vid3 =  create(:video, tutorial: tutorial, position: 3, id: 1_234_567)
       admin = create(:admin)
 
       sequence = {}
@@ -22,7 +22,7 @@ RSpec.describe 'Admin::Api::V1::TutorialSequencerController', type: :request do
       videos = JSON.parse(response.body)['videos']
 
       video_3_json = videos.find do |video_hash|
-        video_hash['id'] == vid_3.id
+        video_hash['id'] == vid3.id
       end
 
       expect(video_3_json['position']).to eq(1)
@@ -30,9 +30,9 @@ RSpec.describe 'Admin::Api::V1::TutorialSequencerController', type: :request do
 
     it 'non admin user receives invalid response' do
       tutorial = create(:tutorial, id: 12)
-      vid_1 =  create(:video, tutorial: tutorial, position: 1, id: 12_345)
-      vid_2 =  create(:video, tutorial: tutorial, position: 2, id: 123_456)
-      vid_3 =  create(:video, tutorial: tutorial, position: 3, id: 1_234_567)
+      vid1 =  create(:video, tutorial: tutorial, position: 1, id: 12_345)
+      vid2 =  create(:video, tutorial: tutorial, position: 2, id: 123_456)
+      vid3 =  create(:video, tutorial: tutorial, position: 3, id: 1_234_567)
       user = create(:user)
 
       sequence = {}
@@ -45,16 +45,16 @@ RSpec.describe 'Admin::Api::V1::TutorialSequencerController', type: :request do
 
       expect(response.body).to include("The page you're looking for could not be found.")
 
-      expect(vid_1.position).to eq(1)
-      expect(vid_2.position).to eq(2)
-      expect(vid_3.position).to eq(3)
+      expect(vid1.position).to eq(1)
+      expect(vid2.position).to eq(2)
+      expect(vid3.position).to eq(3)
     end
 
     it 'visitor receives invalid response' do
       tutorial = create(:tutorial, id: 12)
-      vid_1 =  create(:video, tutorial: tutorial, position: 1, id: 12_345)
-      vid_2 =  create(:video, tutorial: tutorial, position: 2, id: 123_456)
-      vid_3 =  create(:video, tutorial: tutorial, position: 3, id: 1_234_567)
+      vid1 =  create(:video, tutorial: tutorial, position: 1, id: 12_345)
+      vid2 =  create(:video, tutorial: tutorial, position: 2, id: 123_456)
+      vid3 =  create(:video, tutorial: tutorial, position: 3, id: 1_234_567)
 
       sequence = {}
       sequence[:tutorial_sequencer] = { _json: ['1234567'] }
@@ -65,9 +65,9 @@ RSpec.describe 'Admin::Api::V1::TutorialSequencerController', type: :request do
 
       expect(response.body).to include("The page you're looking for could not be found.")
 
-      expect(vid_1.position).to eq(1)
-      expect(vid_2.position).to eq(2)
-      expect(vid_3.position).to eq(3)
+      expect(vid1.position).to eq(1)
+      expect(vid2.position).to eq(2)
+      expect(vid3.position).to eq(3)
     end
   end
 end

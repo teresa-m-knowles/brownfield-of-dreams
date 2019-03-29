@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Inherits from Action Controller
 class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :find_bookmark

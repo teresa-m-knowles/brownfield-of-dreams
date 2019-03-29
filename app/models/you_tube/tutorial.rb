@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module YouTube
+  # Tutorial PORO, different from the Tutorial Model
   class Tutorial
     attr_reader :title
     attr_reader :description

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Github service for connecting to github
 class GithubService
   def initialize(user)
     @user = user

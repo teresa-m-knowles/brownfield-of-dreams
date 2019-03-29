@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# To Activate an account upon registering
 class ActivationController < ApplicationController
   def activate
     if current_user

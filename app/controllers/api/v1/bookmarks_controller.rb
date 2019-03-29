@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Admin can create bookmarks
 class Api::V1::BookmarksController < ApplicationController
   skip_before_action :verify_authenticity_token
 

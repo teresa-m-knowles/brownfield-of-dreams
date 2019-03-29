@@ -27,8 +27,8 @@ describe 'Visitor' do
 
     describe 'if a tutorial is classroom only' do
       it 'They should have a (Clasroom) in the title' do
-        tutorial_1 = create(:tutorial, classroom: true, title: 'Test Tutorial')
-        tutorial_2 = create(:tutorial, classroom: false, title: 'Test Test Tutorial ')
+        tutorial1 = create(:tutorial, classroom: true, title: 'Test Tutorial')
+        tutorial2 = create(:tutorial, classroom: false, title: 'Test Test Tutorial ')
 
         visit root_path
         within(first('.tutorial')) do

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# To Connect to Github as a User
 class GithubConnectionController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
