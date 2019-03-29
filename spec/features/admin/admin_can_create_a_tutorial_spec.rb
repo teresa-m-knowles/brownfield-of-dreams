@@ -45,6 +45,7 @@ RSpec.describe 'Admin can create a Tutorial' do
           click_on "Save"
 
           expect(page).to_not have_content("Successfully created tutorial.")
+          expect(page).to have_content("Unable to create a tutorial.")
 
           expect(Tutorial.last).to eq(nil)
 
