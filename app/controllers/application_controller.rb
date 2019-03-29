@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :tutorial_name
 
   add_flash_types :success
+  before_action -> { flash.now[:notice] = flash[:notice].html_safe if flash[:html_safe] && flash[:notice] }
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -18,14 +19,8 @@ class ApplicationController < ActionController::Base
     current_user.user_videos.find_by(video_id: id)
   end
 
-  #Don't appear to need
-  # def tutorial_name(id)
-  #   Tutorial.find(id).title
-  # end
-
   def four_oh_four
     render file: 'errors/not_found', status: 404
   end
-
 
 end

@@ -17,8 +17,11 @@ class Admin::TutorialsController < Admin::BaseController
     elsif @tutorial.save
       save_videos
 
-      flash[:message] = "Successfully created tutorial."
-      redirect_to admin_dashboard_path
+      redirect_to(
+        admin_dashboard_path,
+        notice: %Q[ Successfully created tutorial. #{view_context.link_to("View it here", tutorial_path(@tutorial))}.],
+        flash: { html_safe: true }
+      )
     else
       error_message = @tutorial.errors.full_messages.to_sentence
       flash[:error] = "Unable to create Tutorial. #{error_message}"
