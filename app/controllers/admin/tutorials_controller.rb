@@ -6,11 +6,7 @@ class Admin::TutorialsController < Admin::BaseController
   end
 
   def create
-    if params[:tutorial][:playlist_id]
-      create_tutorial_from_playlist unless create_tutorial_from_playlist.nil?
-    else
-      @tutorial = create_tutorial_from_input
-    end
+    create_tutorial
 
     if @tutorial.nil?
       flash[:message] = 'Invalid playlist ID. Please try again.'
@@ -56,16 +52,25 @@ class Admin::TutorialsController < Admin::BaseController
     params.require(:tutorial).permit(:tag_list, :title, :description, :thumbnail, :playlist_id)
   end
 
+  def create_tutorial
+    if params[:tutorial][:playlist_id]
+      create_tutorial_from_playlist unless create_tutorial_from_playlist.nil?
+      create_tutorial_videos unless create_tutorial_from_playlist.nil?
+    else
+      create_tutorial_from_input
+    end
+  end
+
   def create_tutorial_from_input
-    Tutorial.new(tutorial_params)
+    @tutorial = Tutorial.new(tutorial_params)
   end
 
   def create_tutorial_from_playlist
     playlist_id = params[:tutorial][:playlist_id]
-
-    return nil if YouTube::Tutorial.by_id(playlist_id).title.nil?
-
     youtube_tutorial = YouTube::Tutorial.by_id(playlist_id)
+
+    return nil if youtube_tutorial.title.nil?
+
     title = youtube_tutorial.title
     description = youtube_tutorial.description
 
@@ -75,18 +80,21 @@ class Admin::TutorialsController < Admin::BaseController
     playlist_params = { title: title, description: description, thumbnail: thumbnail, playlist_id: playlist_id }
 
     @tutorial = Tutorial.new(playlist_params)
+  end
 
+  def create_tutorial_videos
+    playlist_id = params[:tutorial][:playlist_id]
     tutorial_videos_data = YoutubeService.new.playlist_videos_info(playlist_id)
 
     @tutorial_videos = []
     tutorial_videos_data[:items].each do |tutorial_video|
-      v_title = tutorial_video[:snippet][:title]
-      v_description = tutorial_video[:snippet][:description]
-      v_id = tutorial_video[:contentDetails][:videoId]
-      v_thumbnail = tutorial_video[:snippet][:thumbnails][:high][:url]
-
-      new_video_params = { title: v_title, description: v_description, thumbnail: v_thumbnail, video_id: v_id }
-
+      new_video_params = {
+                          title: tutorial_video[:snippet][:title],
+                          description: tutorial_video[:snippet][:description],
+                          video_id: tutorial_video[:contentDetails][:videoId],
+                          thumbnail: tutorial_video[:snippet][:thumbnails][:high][:url],
+                          tutorial_id: @tutorial
+                        }
       @tutorial_videos << Video.new(new_video_params)
     end
   end
