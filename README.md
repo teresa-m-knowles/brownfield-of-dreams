@@ -32,6 +32,7 @@ Admins have the ability to make new, edit or delete tutorials. You can Log In as
 
 email: admin@example.com password: password
 
+![Homepage](https://github.com/teresa-m-knowles/brownfield-of-dreams/blob/master/brownfield.png)
 ## Local Setup
 
 #### For testing on localhost:3000:
