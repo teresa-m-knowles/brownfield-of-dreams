@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe UserDashboardFacade do
+RSpec.describe AdminDashboardFacade do
   before :each do
     @user = create(:user)
     create(:github_token, user: @user, token: ENV['USER_1_GITHUB_TOKEN'])
@@ -31,6 +31,10 @@ RSpec.describe UserDashboardFacade do
 
     it 'gets the github users the current user follows' do
       expect(@facade.users_followed.count).to eq(13)
+    end
+
+    it 'gets followers' do
+      expect(@facade.user_followers.count).to eq(10)
     end
 
     it 'gets the users bookmarked videos' do
