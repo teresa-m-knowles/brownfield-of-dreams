@@ -1,5 +1,6 @@
-class GithubUser
+# frozen_string_literal: true
 
+class GithubUser
   attr_reader :name,
               :address,
               :id,
