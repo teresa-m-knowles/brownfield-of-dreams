@@ -33,6 +33,10 @@ RSpec.describe UserDashboardFacade do
       expect(@facade.users_followed.count).to eq(13)
     end
 
+    it 'gets followers' do
+      expect(@facade.user_followers.count).to eq(10)
+    end
+
     it 'gets the users bookmarked videos' do
       tutorial1 = create(:tutorial)
       video1 = create(:video, tutorial_id: tutorial1.id)

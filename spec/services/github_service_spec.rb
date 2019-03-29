@@ -34,7 +34,6 @@ RSpec.describe GithubService do
     end
 
     it 'gets user followers' do
-
       service = GithubService.new(@user1)
 
       results = service.get_followers
@@ -43,6 +42,5 @@ RSpec.describe GithubService do
       expect(follower[:login]).to eq('Mackenzie-Frey')
       expect(follower[:html_url]).to eq('https://github.com/Mackenzie-Frey')
     end
-
   end
 end

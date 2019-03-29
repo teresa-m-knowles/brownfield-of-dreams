@@ -87,7 +87,6 @@ class Admin::TutorialsController < Admin::BaseController
 
       new_video_params = { title: v_title, description: v_description, thumbnail: v_thumbnail, video_id: v_id }
 
-
       @tutorial_videos << Video.new(new_video_params)
     end
   end
@@ -98,5 +97,4 @@ class Admin::TutorialsController < Admin::BaseController
       video.save
     end
   end
-  
 end
