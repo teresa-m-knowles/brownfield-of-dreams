@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'As a visitor', :js do
@@ -30,7 +32,7 @@ describe 'As a visitor', :js do
 
     expect(page).to have_content("Logged in as #{first_name} #{last_name}.")
 
-    within(".dashboard-acct-details") do
+    within('.dashboard-acct-details') do
       expect(page).to have_content(email)
       expect(page).to have_content(first_name)
       expect(page).to have_content(last_name)
@@ -64,7 +66,7 @@ describe 'As a visitor', :js do
     expect(page).to have_content('Register')
   end
 
-describe 'after registering with acceptable credentials'
+  describe 'after registering with acceptable credentials'
   it 'my status is inactive and I receive an activation email' do
     email = 'jimbob@aol.com'
     first_name = 'Jim'
@@ -84,14 +86,14 @@ describe 'after registering with acceptable credentials'
 
     expect(current_path).to eq(dashboard_path)
 
-    expect(page).to have_content("Status: This account has not yet been activated. Please check your email.")
+    expect(page).to have_content('Status: This account has not yet been activated. Please check your email.')
 
     email = ActionMailer::Base.deliveries.last
     email_body = email.parts.first.body.raw_source
 
     expect(email.subject).to eq("You're almost there!")
-    expect(email_body).to have_content("Welcome! Your registration has been initiated. Please visit here to activate your account.")
-    expect(email_body).to have_link("here", href: "http://localhost:3000/activate/#{User.last.id}")
+    expect(email_body).to have_content('Welcome! Your registration has been initiated. Please visit here to activate your account.')
+    expect(email_body).to have_link('here', href: "http://localhost:3000/activate/#{User.last.id}")
   end
 
   it 'I can activate my account through the link in my email' do
@@ -117,35 +119,35 @@ describe 'after registering with acceptable credentials'
 
     expect(current_path).to eq(dashboard_path)
 
-    expect(page).to have_content("Status: This account has not yet been activated. Please check your email.")
+    expect(page).to have_content('Status: This account has not yet been activated. Please check your email.')
 
     visit activate_path(user)
 
-    expect(page).to have_content("Thank you! Your account is now activated.")
+    expect(page).to have_content('Thank you! Your account is now activated.')
 
-    expect(User.last.status).to eq("active")
+    expect(User.last.status).to eq('active')
   end
 
   it "I can't activate my account unless I'm logged in" do
     user = create(:user)
 
-    expect(user.status).to eq("inactive")
+    expect(user.status).to eq('inactive')
 
     visit activate_path(user)
 
     expect(current_path).to eq(login_path)
 
-    expect(page).to have_content("You must be logged in to activate your account. Please login and try again.")
+    expect(page).to have_content('You must be logged in to activate your account. Please login and try again.')
 
-    expect(user.status).to eq("inactive")
+    expect(user.status).to eq('inactive')
   end
 
   it "I can't activate other accounts" do
     user = create(:user)
     other_user = create(:user)
 
-    expect(user.status).to eq("inactive")
-    expect(other_user.status).to eq("inactive")
+    expect(user.status).to eq('inactive')
+    expect(other_user.status).to eq('inactive')
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -153,14 +155,14 @@ describe 'after registering with acceptable credentials'
 
     expect(page).to have_content("The page you're looking for could not be found.")
 
-    expect(user.status).to eq("inactive")
-    expect(other_user.status).to eq("inactive")
+    expect(user.status).to eq('inactive')
+    expect(other_user.status).to eq('inactive')
 
     visit activate_path(user)
 
-    expect(page).to have_content("Thank you! Your account is now activated.")
+    expect(page).to have_content('Thank you! Your account is now activated.')
 
-    expect(user.status).to eq("active")
-    expect(other_user.status).to eq("inactive")
+    expect(user.status).to eq('active')
+    expect(other_user.status).to eq('inactive')
   end
 end

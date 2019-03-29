@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Repository do
   it 'has attributes' do
-    attributes = {name: 'battleship',
-                  html_url: 'wwww.example.com'}
+    attributes = { name: 'battleship',
+                   html_url: 'wwww.example.com' }
 
     repo = Repository.new(attributes)
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UserDashboardFacade do
@@ -65,6 +67,5 @@ RSpec.describe UserDashboardFacade do
       expect(@facade.user_friends.count).to eq(2)
       expect(@facade.user_friends).to eq([user2, user3])
     end
-
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'User can see their Github followers' do
@@ -12,13 +14,13 @@ RSpec.describe 'User can see their Github followers' do
 
         visit '/dashboard'
 
-        expect(page).to have_content("My Followers")
+        expect(page).to have_content('My Followers')
 
         expect(page).to have_css('.user_follower', count: 10)
 
         within(first('.user_follower')) do
           expect(page).to have_css('.name')
-          expect(page).to have_link('Mackenzie-Frey', href: "https://github.com/Mackenzie-Frey")
+          expect(page).to have_link('Mackenzie-Frey', href: 'https://github.com/Mackenzie-Frey')
         end
       end
     end

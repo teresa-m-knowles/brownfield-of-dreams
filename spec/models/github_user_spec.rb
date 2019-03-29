@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe GithubUser, type: :model do
   it 'has attributes' do
     attributes = {
-      login: "jamisonordway",
-      html_url: "https://github.com/jamisonordway",
-      id: "12345"
+      login: 'jamisonordway',
+      html_url: 'https://github.com/jamisonordway',
+      id: '12345'
     }
 
     github_user = GithubUser.new(attributes)
@@ -18,9 +20,9 @@ RSpec.describe GithubUser, type: :model do
   describe 'Instance Methods' do
     it '#registered_user?' do
       attributes = {
-        login: "jamisonordway",
-        html_url: "https://github.com/jamisonordway",
-        id: "12345"
+        login: 'jamisonordway',
+        html_url: 'https://github.com/jamisonordway',
+        id: '12345'
       }
 
       github_user = GithubUser.new(attributes)
@@ -32,9 +34,9 @@ RSpec.describe GithubUser, type: :model do
 
     it '#not_already_friend?' do
       attributes = {
-        login: "jamisonordway",
-        html_url: "https://github.com/jamisonordway",
-        id: "12345"
+        login: 'jamisonordway',
+        html_url: 'https://github.com/jamisonordway',
+        id: '12345'
       }
 
       github_user = GithubUser.new(attributes)
@@ -47,5 +49,4 @@ RSpec.describe GithubUser, type: :model do
       expect(github_user.not_already_friend?(user)).to eq(false)
     end
   end
-
 end

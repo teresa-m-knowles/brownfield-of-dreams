@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module YouTube
   class Tutorial
     attr_reader :title

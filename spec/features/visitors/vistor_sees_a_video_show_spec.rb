@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'visitor sees a video show' do
@@ -17,13 +19,13 @@ describe 'visitor sees a video show' do
 
     describe 'if there are no videos for that tutorial' do
       it 'sees a message letting them know there are no videos in that tutorial' do
-      tutorial = create(:tutorial)
+        tutorial = create(:tutorial)
 
-      visit '/'
+        visit '/'
 
-      click_on tutorial.title
-      expect(current_path).to eq(tutorial_path(tutorial))
-      expect(page).to have_content("There are no videos for this tutorial yet.")
+        click_on tutorial.title
+        expect(current_path).to eq(tutorial_path(tutorial))
+        expect(page).to have_content('There are no videos for this tutorial yet.')
       end
     end
   end
